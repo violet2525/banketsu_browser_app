@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>バンケツくんブラウザ</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+    html, body {
+      background: #eee;
+      width: 1024px;
+      height: 800px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-size: 14px;
+      font-family: sans-serif;
+    }
+    webview{
+      height: 576px;
+      width: 1024px;
+      overflow: hidden;
+    }
+    td{
+      width: 204px;
+      height: 224px;
+    }
+    dl{
+      margin-top: 0;
+      height: 224px;
+    }
+    dt, dd{
+      margin-top: 0;
+      margin-left: 0;
+      height: 32px;      
+    }
+    .fa{
+      width: 30px;
+    }
+    .fa-exclamation{
+      color: red;
+      text-align: center;
+      font-size: 20px;
+      vertical-align: middle;
+    }
+    .blink{
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }    
+    .migisita{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 0;
+      text-align: right;
+      margin: 5px;
+    }
+    #migisita_info{
+      color: #333;
+    }
+    input[type=button]{
+      font-family: FontAwesome /*FontAwesomeをフォント指定*/;
+      color: black;
+      height: 2em;
+      vertical-align: bottom;
+    }    
+    </style>
+  </head>
+  <body>
+    <webview id="webview" preload="./inject.js">
+    </webview>
+    <div class="migisita"><i class="fa fa-chevron-up" id="migisita_info"></i></div>
+    <table id="table">
+      <tr>
+        <td>
+          <dl>
+            <dt>霊廟<i class="fa fa-exclamation" id="reibyou_info"></i><input type="button" id="reibyou" value="時間取得"></dt>
+            <dd>第一廟室：<label id="reibyou_01" class="reibyou_label"></label></dd>
+            <dd>第二廟室：<label id="reibyou_02" class="reibyou_label"></label></dd>
+            <dd>第三廟室：<label id="reibyou_03" class="reibyou_label"></label></dd>
+            <dd>第四廟室：<label id="reibyou_04" class="reibyou_label"></label></dd>
+          </dl>
+        </td>
+        <td>
+            <dl>
+              <dt>花廊<i class="fa fa-exclamation" id="karou_info"></i><input type="button" id="karou" value="時間取得"></dt>
+              <!--<dd>御庭番：<label id="karou_00"></label></dd>-->
+              <dd>苗床一：<label id="karou_01" class="karou_label"></label></dd>
+              <dd>苗床二：<label id="karou_02" class="karou_label"></label></dd>
+              <dd>苗床三：<label id="karou_03" class="karou_label"></label></dd>
+              <dd>苗床四：<label id="karou_04" class="karou_label"></label></dd>
+            </dl>
+          </td>
+          <!--
+        <td>
+          <dl>
+            <dt>錬金堂<i class="fa fa-exclamation" id="renkin_info"></i><input type="button" id="renkin" value="時間取得"></dt>
+            <dd>御庭番：<label id="renkin_01"></label></dd>
+          </dl>
+        </td>
+        -->
+        <td>
+          <dl>
+            <dt>遠征<i class="fa fa-exclamation" id="ensei_info"></i><input type="button" id="ensei" value="時間取得"></dt>
+            <dd>短：<label id="ensei_01" class="ensei_label"></label></dd>
+            <dd>中：<label id="ensei_02" class="ensei_label"></label></dd>
+            <dd>長：<label id="ensei_03" class="ensei_label"></label></dd>
+            <dd>万：<label id="ensei_04" class="ensei_label"></label></dd>
+          </dl>
+        </td>
+        <td>
+          <dl>
+            <dt>紫玉<i class="fa fa-exclamation" id="sigyoku_info"></i><input type="button" id="sigyoku" value="時間取得"></dt>
+            <dd><label id="sigyoku_01"></label></dd>
+          </dl>
+        </td>
+        <td>
+          <dl>
+            <dd>
+              <input type="button" id="pic" value="画像保存">
+              <label><input type="checkbox" id="mute" checked="false">消音</label>
+              <i class="fa fa-clock-o" style="width:15px;"></i><label id="time" style="text-align:left"></label>
+            </dd>
+            <dd>
+              <input type="button" id="reload" value="リロード">
+            </dd>
+            <dd>
+              <label><input type="checkbox" id="notify_desktop" checked="check">デスクトップ通知</label>
+            </dd>
+            <dd>
+              <label><input type="checkbox" id="notify_icon" checked="check">通知アイコン</label>
+            </dd>
+          </dl>
+        </td>
+      </tr>
+    </table>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js');
+    </script>
+  </body>
+</html>

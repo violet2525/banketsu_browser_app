@@ -1,0 +1,22 @@
+{
+  "name": "banketsu_browser",
+  "version": "1.0.0",
+  "description": "バンケツの専ブラ",
+  "main": "main.js",
+  "scripts": {
+    "start": "./node_modules/.bin/electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://violet2525@bitbucket.org/violet2525/banketsu_browser.git"
+  },
+  "author": "violet",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/violet2525/banketsu_browser#readme",
+  "dependencies": {
+    "electron": "^1.7.8",
+    "hamming-distance": "^1.0.0",
+    "jimp": "^0.2.28",
+    "tesseract.js": "^1.0.10"
+  }
+}
