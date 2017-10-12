@@ -1,5 +1,5 @@
 "use strict";
-
+const dev = false;
 const {app, BrowserWindow} = require('electron');
 const path = require('path');
 const url = require('url');
@@ -26,7 +26,9 @@ function createWindow () {
     slashes: true
   }));
 
-  win.webContents.openDevTools()
+  if(dev === true){
+    win.webContents.openDevTools();    
+  }
 
   //ウィンドウが閉じられると発生します。
   win.on('closed', () => {

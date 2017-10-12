@@ -4,7 +4,9 @@
   "description": "バンケツの専ブラ",
   "main": "main.js",
   "scripts": {
-    "start": "./node_modules/.bin/electron ."
+    "start": "./node_modules/.bin/electron .",
+    "publish": "electron-packager . banketsu_browser --platform=win32 --arch=x64 --version=1.7.8 --icon favicon.ico --asar",
+    "lint": "./node_modules/.bin/eslint banketsu_browser"
   },
   "repository": {
     "type": "git",
@@ -15,6 +17,7 @@
   "homepage": "https://bitbucket.org/violet2525/banketsu_browser#readme",
   "dependencies": {
     "electron": "^1.7.8",
+    "eslint": "^4.8.0",
     "hamming-distance": "^1.0.0",
     "jimp": "^0.2.28",
     "tesseract.js": "^1.0.10"
